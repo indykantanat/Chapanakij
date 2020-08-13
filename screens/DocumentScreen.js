@@ -12,3 +12,14 @@ export class DocumentScreen extends Component {
 }
 
 export default DocumentScreen
+
+import React from 'react'
+import { View, Text } from 'react-native'
+
+export default function DocumentScreen() {
+    return (
+        <View>
+            <Text></Text>
+        </View>
+    )
+}
