@@ -40,7 +40,7 @@ export default class NewsScreen extends Component {
     axios.get(url + "api/TestLocation/Get/1")
       .then(response => {
         this.setState({ TestLocation : response.data })
-        Alert.alert(JSON.stringify(response.data)) 
+        //Alert.alert(JSON.stringify(response.data)) 
       })
       .catch(err => {
         alert(JSON.stringify(error));
@@ -76,7 +76,7 @@ export default class NewsScreen extends Component {
   render() {
     return (
       
-        <View style={{flex:1,backgroundColor:'#ff3333'}}>
+        <View style={{flex:1,backgroundColor:'#000000'}}>
        
        {/* <Text style={{marginTop:10,fontSize:17,color:'#ffffff'}}>  {this.state.TestLocation.Id} </Text>
        <Text style={{marginTop:10,fontSize:17,color:'#ffffff'}}>  {this.state.TestLocation.Name} </Text>

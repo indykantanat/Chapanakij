@@ -4,22 +4,11 @@ import { Text, View } from 'react-native'
 export class DocumentScreen extends Component {
     render() {
         return (
-            <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-            <Text>เอกสาร  2 22  22  2!</Text>
-          </View>
+            <View>
+                <Text> textInComponerrnt </Text>
+            </View>
         )
     }
 }
 
 export default DocumentScreen
-
-import React from 'react'
-import { View, Text } from 'react-native'
-
-export default function DocumentScreen() {
-    return (
-        <View>
-            <Text></Text>
-        </View>
-    )
-}

@@ -7,12 +7,14 @@ import {Text, View} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
+
 //ALL Screen is here !
 import HomeScreen from './screens/HomeScreen';
 import NewsScreen from './screens/NewsScreen';
 import FormScreen from './screens/FormScreen';
 import KratooScreen from './screens/KratooScreen';
 import DocumentScreen from './screens/DocumentScreen';
+import LoadingScreen from './screens/LoadingScreen';
 
 const HomeStack = createStackNavigator();
 function HomeStackScreen() {
@@ -22,9 +24,9 @@ function HomeStackScreen() {
         name="Home"
         component={HomeScreen}
         options={{
-          title: 'ฌกส',
+          title: 'DEMO',
           headerStyle: {
-            backgroundColor: '#ffa726',
+            backgroundColor: '#000080',
             
           },
           headerTintColor: '#fff',
@@ -49,7 +51,7 @@ function NewsStackScreen() {
         options={{
           title: 'ข่าวสาร',
           headerStyle: {
-            backgroundColor: '#ffa726',
+            backgroundColor: '#000080',
           },
           headerTintColor: '#fff',
           headerTitleStyle: {
@@ -68,7 +70,20 @@ const FormStack = createStackNavigator();
 function FormStackScreen() {
   return (
     <FormStack.Navigator>
-      <FormStack.Screen name="Form" component={FormScreen} />
+      <FormStack.Screen name="Form" 
+      component={FormScreen} 
+      options={{
+        title: 'แบบฟอร์ม',
+        headerStyle: {
+          backgroundColor: '#000080',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+          fontSize: 20,
+        },
+      }}
+      />
     </FormStack.Navigator>
   );
 }
@@ -77,7 +92,19 @@ const KratooStack = createStackNavigator();
 function KratooStackScreen() {
   return (
     <KratooStack.Navigator>
-      <KratooStack.Screen name="Kratoo" component={KratooScreen} />
+      <KratooStack.Screen name="Kratoo" 
+      component={KratooScreen} 
+      options={{
+        title: 'กระทู้',
+        headerStyle: {
+          backgroundColor: '#000080',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+          fontSize: 20,
+        },
+      }}/>
     </KratooStack.Navigator>
   );
 }
@@ -91,14 +118,14 @@ const tabs = (
         activeTintColor: 'white',
         inactiveTintColor: 'gray',
         style: {
-          backgroundColor: '#ffa726',
+          backgroundColor: '#000080',
           position: 'absolute',
           left: 0,
           bottom: 0,
           right: 0,
-          borderTopRightRadius: 10,
-          borderTopLeftRadius: 10,
-          borderTopWidth: 0,
+          //borderTopRightRadius: 10,
+          //borderTopLeftRadius: 10,
+          //borderTopWidth: 0,
           // backgroundColor: '#FFFFFF',
           // borderTopRightRadius: 20,
           // borderTopLeftRadius: 20,
@@ -148,8 +175,8 @@ export default function App() {
 //           options={{title: 'ข่าวสาร'}}
 //         />
 //         <Tab.Screen
-//           name="Form"
-//           component={FormScreen}
+//           name="Form"s
+//           component={FormScreesn}
 //           options={{title: 'แบบฟอร์ม'}}
 //         />
 //         <Tab.Screen

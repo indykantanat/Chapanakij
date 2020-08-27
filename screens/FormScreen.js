@@ -1,5 +1,13 @@
 import React, {Component} from 'react';
-import {Text, View, Dimensions, Button, Alert, StyleSheet} from 'react-native';
+import {
+  Text,
+  View,
+  Dimensions,
+  Button,
+  Alert,
+  StyleSheet,
+  TouchableOpacity,
+} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -30,7 +38,8 @@ export class FormScreen extends Component {
     super(props);
     this.state = {
       userLocation: {},
-
+      count: 0,
+      TextValue: 'เวลารับคำสั่ง',
 
       //initialPosition: 'unknown',
       //lastPosition: 'unknown',
@@ -111,10 +120,19 @@ export class FormScreen extends Component {
         console.log(error);
       });
   };
- 
-  /* -------------------------------------------------------------------------- */
 
+  onPress = () => {
+    this.setState({
+      count: this.state.count + 1,
+      TextValue: 'เวลาออกจากฐาน',
+    });
+    console.log('TextValue state is :  ' + this.state.TextValue,);
+  
+  };
+
+   /* -------------------------------------------------------------------------- */
   render() {
+    const {count, TextValue} = this.state;
     return (
       <View
         style={{flex: 1, justifyContent: 'flex-start', alignItems: 'center'}}>
@@ -129,17 +147,17 @@ export class FormScreen extends Component {
           showsUserLocation={true}
           showsMyLocationButton={true}
           region={this.props.coordinate}
-          style={{flexDirection:'row',height: '50%',width:'100%'}}
+          style={{flexDirection: 'row', height: '50%', width: '100%'}}
         />
 
-{/* 
+        {/* 
         <Marker 
         coordinate={{ latitude:this.state.userLocation.latitude,longitude:this.state.userLocation.longitude}} 
 
         title='test'
         pinColor='#fff000'> */}
-          
-          {/* <Callout
+
+        {/* <Callout
             onPress={() => {
               Linking.openURL(
                 "http://maps.google.com/maps?q=loc:" + "13.8142851"+ "," + "100.5555916" + "(Label which you want)"
@@ -196,6 +214,11 @@ export class FormScreen extends Component {
           <Text style={styles.title}>userLocation longitude is : </Text>
           {this.state.userLocation.longitude}
         </Text>
+
+        <TouchableOpacity style={styles.button} onPress={this.onPress}>
+          <Text style={styles.orderText}>{this.state.TextValue}</Text>
+        </TouchableOpacity>
+        <Text>Count: {count}</Text>
       </View>
     );
   }
@@ -204,6 +227,17 @@ export class FormScreen extends Component {
 const styles = StyleSheet.create({
   title: {
     fontWeight: '500',
+  },
+  button: {
+    alignItems: 'center',
+    backgroundColor: '#007AFF',
+    padding: 10,
+    width: '100%',
+  },
+  orderText: {
+    fontWeight: '500',
+    fontSize: 25,
+    color: '#fff',
   },
 });
 
